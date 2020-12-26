@@ -5,14 +5,17 @@
 # Step 1:
 # This is your Docker ID/path
 # dockerpath=<>
+dockerpath="ghasemel/flask:v1"
 
 # Step 2
 # Run the Docker Hub container with kubernetes
-
+kubectl run flaskapp --image=$dockerpath --port=80
 
 # Step 3:
 # List kubernetes pods
+#kubectl get pod flaskapp
+kubectl get pods
 
 # Step 4:
 # Forward the container port to a host
-
+kubectl port-forward flaskapp 8000:80
